@@ -14,12 +14,22 @@ namespace NameSorterV3 {
         public static ISortList CreateSortList() {
             return new SortList();
         }
-
-        /*
-        public static ListReader CreateListReader() {
-            return new ListReader();
+        
+        public static IListReader CreateListReader(string fileLocation) {
+            return new ListReader(fileLocation);
         }
-        */
+
+        public static ITextFileRead CreateTextFileRead(string fileLocation) {
+            return new TextFileRead(fileLocation);
+        }
+        
+        public static ITextFileWrite CreateTextFileWrite(string txtMessage, string fileLoc) {
+            return new TextFileWrite(txtMessage, fileLoc);
+        }
+
+        public static IOutToConsole SendOutToConsole(string txtMessage) {
+            return new OutToConsole(txtMessage);
+        }
 
     }
 

@@ -43,9 +43,9 @@ namespace XUnitTestNameSorter {
 
                 ISortList TestList = Factory.CreateSortList();
                 string TestData1 = "Lady Madonna";
-                TestList.AddPerson(TestData1);
+                TestList.AddItem(TestData1);
 
-                Assert.True(TestList.GetItemDisplayName(0) == TestData1);
+                Assert.True(TestList.GetItemDisplayValue(0) == TestData1);
             }
 
             [Fact]
@@ -58,42 +58,42 @@ namespace XUnitTestNameSorter {
                 string TestData4 = "Lumpy Lumbah";
                 string TestData5 = "Donny Dumbo";
 
-                TestList.AddPerson(TestData1);
-                TestList.AddPerson(TestData2);
-                TestList.AddPerson(TestData3);
-                TestList.AddPerson(TestData4);
-                TestList.AddPerson(TestData5);
+                TestList.AddItem(TestData1);
+                TestList.AddItem(TestData2);
+                TestList.AddItem(TestData3);
+                TestList.AddItem(TestData4);
+                TestList.AddItem(TestData5);
 
                 TestList.DoSorting();
 
-                Assert.True(TestList.GetItemDisplayName(0) == TestData5); // Dumbo, Donny
-                Assert.True(TestList.GetItemDisplayName(1) == TestData3); // Fruitcake, Apple
-                Assert.True(TestList.GetItemDisplayName(2) == TestData4); // Lumbah, Lumpy
-                Assert.True(TestList.GetItemDisplayName(3) == TestData1); // Madonna, Lady
-                Assert.True(TestList.GetItemDisplayName(4) == TestData2); // Smith, Joe Andrew
+                Assert.True(TestList.GetItemDisplayValue(0) == TestData5); // Dumbo, Donny
+                Assert.True(TestList.GetItemDisplayValue(1) == TestData3); // Fruitcake, Apple
+                Assert.True(TestList.GetItemDisplayValue(2) == TestData4); // Lumbah, Lumpy
+                Assert.True(TestList.GetItemDisplayValue(3) == TestData1); // Madonna, Lady
+                Assert.True(TestList.GetItemDisplayValue(4) == TestData2); // Smith, Joe Andrew
 
             }
         }
 
         /* Testing ListReader class */
-        /*       public class UT3TestListReader {
+               public class UT3TestListReader {
 
                    readonly string FileLocation = "./unsorted-names-list.txt";
 
                    [Fact]
                    public void ListReaderIsCreated() {
-                       ListReader MyReader = new ListReader(FileLocation);
+                       IListReader MyReader = Factory.CreateListReader(FileLocation);
                        Assert.True(MyReader != null);
                    }
 
                    [Fact]
                    public void ListReaderIsFilled() {
-                       ListReader MyReader = new ListReader(FileLocation);
+                       IListReader MyReader = Factory.CreateListReader(FileLocation);
                        string MyOutput = MyReader.OutputList();
                        Assert.True(MyOutput != "");
                    }
                }
-         */
+         
     }
 }
 

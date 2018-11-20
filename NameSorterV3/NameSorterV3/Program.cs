@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,12 +8,28 @@ using System.Threading.Tasks;
 namespace NameSorterV3 {
     class Program {
         static void Main(string[] args) {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+
+            /* file names/locations for input and output text files */
+            string InputFileLocation = "./unsorted-names-list.txt";
+            string OutputFileLocation = "./sorted-names-list.txt";
+
+            try {
+
+                /* Instantiate reader and retrieve output data */
+                IListReader myListReader = Factory.CreateListReader(InputFileLocation);
+                string outData = myListReader.OutputList();
+
+                Factory.CreateTextFileWrite(outData, OutputFileLocation);
+                Factory.SendOutToConsole(outData);
+
+            }
+            catch (FileNotFoundException e) {
+                Console.WriteLine(e.Message);
+                Console.ReadKey();
+            }
         }
     }
+
+
 }

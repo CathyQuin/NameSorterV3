@@ -44,11 +44,19 @@
   <ItemGroup>
     <Compile Include="Factory.cs" />
     <Compile Include="IListItem.cs" />
+    <Compile Include="IListReader.cs" />
+    <Compile Include="IOutToConsole.cs" />
     <Compile Include="ISortList.cs" />
+    <Compile Include="ITextFileRead.cs" />
+    <Compile Include="ITextFileWrite.cs" />
     <Compile Include="ListItem.cs" />
+    <Compile Include="ListReader.cs" />
+    <Compile Include="OutToConsole.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SortList.cs" />
+    <Compile Include="TextFileRead.cs" />
+    <Compile Include="TextFileWrite.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

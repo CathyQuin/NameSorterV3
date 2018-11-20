@@ -32,11 +32,11 @@ namespace NameSorterV3 {
             return MyList.Count;
         }
 
-        public string GetItemDisplayName(int inputIndex) {
+        public string GetItemDisplayValue(int inputIndex) {
             return MyList[inputIndex].GetDisplayValue();
         }
         
-        public void AddPerson(string inputValue) {
+        public void AddItem(string inputValue) {
             MyList.Add(Factory.CreateListItem(inputValue));
         }
 
@@ -47,14 +47,14 @@ namespace NameSorterV3 {
         }
 
         public string OutputList() {
-            string PrintList = "";
-            int PersonCount = ListCount();
+            string OutList = "";
+            int ItemCount = ListCount();
 
-            for (int i = 0; i < PersonCount; i++) {
-                PrintList += GetItemDisplayName(i) + "\n";
+            for (int i = 0; i < ItemCount; i++) {
+                OutList += GetItemDisplayValue(i) + "\n";
             }
 
-            return PrintList;
+            return OutList;
         }
     }
 }
